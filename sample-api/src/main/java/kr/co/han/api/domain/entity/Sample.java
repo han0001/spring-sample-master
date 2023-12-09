@@ -8,19 +8,19 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor
 @Entity
-@Table(name = "tb_sample_member")
-public class SampleMember {
+@Table(name = "tb_sample")
+public class Sample {
 
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "member_id")
+    @Column(name = "sample_id")
     public Long id;
 
     @Column
-    private String memberName;
+    private String name;
 
-    public SampleMember(String memberName){
-        this.memberName = memberName;
+    public Sample(String name){
+        this.name = name;
     }
 }

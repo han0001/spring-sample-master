@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+    mysql:
+        container_name: mysql_container
+        image: mysql:8.0.17
+        volumes:
+            - ./data/mysql/:/usr/local/var/lib/mysql # 저장소 마운트
+            - ./setup.sql:/docker-entrypoint-initdb.d/setup.sql # DB 초기화
+        ports:
+            - "3306:3306"
+        command:
+            - --character-set-server=utf8mb4
+            - --collation-server=utf8mb4_unicode_ci
+        env_file: .env # .env파일 read
