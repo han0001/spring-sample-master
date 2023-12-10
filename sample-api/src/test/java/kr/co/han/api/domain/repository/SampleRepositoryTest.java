@@ -17,11 +17,10 @@ import org.springframework.util.Assert;
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 class SampleRepositoryTest {
 
-    @Autowired
-    private SampleRepository sampleRepository;
+    @Autowired SampleRepository sampleRepository;
 
     @Test
-    void SAMPLE_DB_TEST(){
+    void Repository_테스트(){
         Sample sample = new Sample("홍길동");
         Sample saveSample = sampleRepository.save(sample);
 
