@@ -10,6 +10,7 @@ import org.hibernate.criterion.Projection;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.support.QuerydslRepositorySupport;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -17,6 +18,7 @@ import java.util.Optional;
 
 import static kr.co.han.api.domain.entity.QSample.sample;
 @RequiredArgsConstructor
+@Transactional(readOnly = true)
 public class SampleQueryRepository {
 
     private final JPAQueryFactory jpaQueryFactory;
