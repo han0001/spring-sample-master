@@ -9,6 +9,7 @@ public class SampleController {
 
     @GetMapping("example1")
     public String example1(@RequestParam String param1) {
+        // 테스트
         return param1 + "";
 
     }
