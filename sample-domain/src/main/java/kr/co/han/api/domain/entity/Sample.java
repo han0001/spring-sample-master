@@ -1,9 +1,9 @@
 package kr.co.han.api.domain.entity;
 
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
 
 @Getter
 @NoArgsConstructor
@@ -19,6 +19,8 @@ public class Sample {
 
     @Column
     private String name;
+
+    private String sampleCode;
 
     public Sample(String name){
         this.name = name;
