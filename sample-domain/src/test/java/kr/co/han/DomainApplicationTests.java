@@ -3,6 +3,6 @@ package kr.co.han;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-public class ApiApplicationTests {
+public class DomainApplicationTests {
     public void contextLoads(){}
 }

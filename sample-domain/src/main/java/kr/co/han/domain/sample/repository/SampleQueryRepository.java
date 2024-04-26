@@ -1,4 +1,4 @@
-package kr.co.han.api.domain.repository;
+package kr.co.han.domain.sample.repository;
 
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;

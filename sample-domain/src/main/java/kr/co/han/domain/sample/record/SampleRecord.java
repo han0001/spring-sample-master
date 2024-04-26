@@ -1,4 +1,4 @@
-package kr.co.han.api.domain.record;
+package kr.co.han.domain.sample.record;
 
 public record SampleRecord(
         

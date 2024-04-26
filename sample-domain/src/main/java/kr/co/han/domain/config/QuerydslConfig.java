@@ -1,4 +1,4 @@
-package kr.co.han.api.config;
+package kr.co.han.domain.config;
 
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import jakarta.persistence.EntityManager;

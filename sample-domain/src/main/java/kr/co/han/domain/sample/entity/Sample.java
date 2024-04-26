@@ -1,6 +1,7 @@
-package kr.co.han.api.domain.entity;
+package kr.co.han.domain.sample.entity;
 
 import jakarta.persistence.*;
+import kr.co.han.domain.constant.legacy.LegacyPayType;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -11,7 +12,6 @@ import lombok.NoArgsConstructor;
 @Table(name = "tb_sample")
 public class Sample {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "sample_id")
@@ -20,9 +20,11 @@ public class Sample {
     @Column
     private String name;
 
-    private String sampleCode;
+    @Column
+    private LegacyPayType legacyPayType;
 
-    public Sample(String name){
+    public Sample(String name, LegacyPayType legacyPayType){
         this.name = name;
+        this.legacyPayType = legacyPayType;
     }
 }
