@@ -6,21 +6,21 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class JasyptConfigTest {
+class JasyptConfigAESTest {
     @Test
     void getEnc() {
         String url = "";
-        String username = "root";
-        String password = "rootrootpw";
+        String username = "";
+        String password = "";
 
-        System.out.println(jasyptEncoding(url));
-        System.out.println(jasyptEncoding(username));
-        System.out.println(jasyptEncoding(password));
+        System.out.println(String.format("url : %s", jasyptEncoding(url)));
+        System.out.println(String.format("username : %s", jasyptEncoding(username)));
+        System.out.println(String.format("password : %s", jasyptEncoding(password)));
     }
 
     public String jasyptEncoding(String value) {
         StandardPBEStringEncryptor pbeEnc = new StandardPBEStringEncryptor();
-        pbeEnc.setAlgorithm("PBEWithMD5AndDES");
+        pbeEnc.setAlgorithm("PBEWITHHMACSHA512ANDAES_256");
         pbeEnc.setPassword("1Q2w3e4r");
         pbeEnc.setIvGenerator(new RandomIvGenerator());
         return pbeEnc.encrypt(value);
