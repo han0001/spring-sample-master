@@ -4,6 +4,12 @@ spring:
       on-profile: dev
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url:
-    username: root
-    password: rootrootpw
+    url: ENC(rV27zoWnNHf3CGdVhHT9kxrYJ4hThsjKQKCoQXxOoAtjEKD9c7Oa+GW59mGsaryN0fJP/fSkHLa6+DlXKtCfr8EdKAbtRU7aESIvChHBO3Z2xoEtZRbGaUqUfFm/fNpa0T0hRjj7vWuEcF9cHoWHx0gECNEQ2Y7o42g4eVO689/tt8W5FmH7qlx6bCNIFxPl63f8NKX6VouoSSFm7X4QaXYWHACmKr7gFBGciCP9Vqc=)
+    username: ENC(4o6UJDnGMCunpQS9m3Rv+jsTRjNsMmZiBmSztpuYlpThanYlTumKXqB1Snxb0KXj)
+    password: ENC(XatPFyo8YXHqZWsZzno1+9nmCqy4qg2ZhGSB1cKyMrI0Qa6JIFoIOoykrSar2FSN)
+
+
+
+
+
+

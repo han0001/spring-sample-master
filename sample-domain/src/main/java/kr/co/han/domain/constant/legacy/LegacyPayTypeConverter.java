@@ -4,6 +4,6 @@ public class LegacyPayTypeConverter extends AbstractLegacyEnumAttributeConverter
     public static final String ENUM_NAME = "레거시 결제 타입";
 
     public LegacyPayTypeConverter(){
-        super(false, ENUM_NAME);
+        super(LegacyPayType.class, false, ENUM_NAME);
     }
 }

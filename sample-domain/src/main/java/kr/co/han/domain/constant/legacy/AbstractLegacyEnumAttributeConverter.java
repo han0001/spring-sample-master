@@ -24,7 +24,8 @@ public class AbstractLegacyEnumAttributeConverter<E extends Enum<E> & LegacyComm
      * */
     private String enumName;
 
-    public AbstractLegacyEnumAttributeConverter(boolean nullable, String enumName) {
+    public AbstractLegacyEnumAttributeConverter(Class<E> targetEnumClass, boolean nullable, String enumName) {
+        this.targetEnumClass = targetEnumClass;
         this.nullable = nullable;
         this.enumName = enumName;
     }
