@@ -1,0 +1,11 @@
+dependencies {
+    implementation project(':module-domain')
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    /* Swagger - SpringDoc OpenAPI For SpringBoot3 v2.3.0(2024.03) */
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.3.0'
+}
+
+
+bootJar.enabled = true
+jar.enabled = false

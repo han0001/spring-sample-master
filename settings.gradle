@@ -1,3 +1,5 @@
 rootProject.name = 'spring-sample-master'
-include 'sample-domain'
+include 'module-domain'
+include 'module-server'
+include 'module-batch'
 

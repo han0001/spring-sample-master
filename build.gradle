@@ -12,7 +12,7 @@ bootJar.enabled = false
 jar.enabled = false
 
 subprojects {
-    group = 'kr.co.han'
+    group = 'co.kr.han'
     version = '0.0.1-SNAPSHOT'
     sourceCompatibility = JavaVersion.VERSION_21
     targetCompatibility = JavaVersion.VERSION_21
@@ -30,8 +30,17 @@ subprojects {
     dependencies {
         implementation 'org.springframework.boot:spring-boot-starter'
         testImplementation 'org.springframework.boot:spring-boot-starter-test'
-        implementation 'org.projectlombok:lombok'
+
+        /* lombok */
+        compileOnly 'org.projectlombok:lombok'
         annotationProcessor 'org.projectlombok:lombok'
+        testCompileOnly 'org.projectlombok:lombok'
+        testAnnotationProcessor 'org.projectlombok:lombok'
+
+        /* JUNIT 5만 사용(JUNIT 3, 4 구버전 제외) */
+        testImplementation('org.springframework.boot:spring-boot-starter-test') {
+            exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+        }
     }
 
     repositories {
