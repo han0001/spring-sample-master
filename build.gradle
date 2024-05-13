@@ -12,7 +12,7 @@ bootJar.enabled = false
 jar.enabled = false
 
 subprojects {
-    group = 'co.kr.han'
+    group = 'kr.co.hs'
     version = '0.0.1-SNAPSHOT'
     sourceCompatibility = JavaVersion.VERSION_21
     targetCompatibility = JavaVersion.VERSION_21
