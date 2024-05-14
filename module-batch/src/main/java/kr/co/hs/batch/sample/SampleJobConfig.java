@@ -16,8 +16,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 @Slf4j
 @Configuration
 @RequiredArgsConstructor
-public class SampleJob {
-
+public class SampleJobConfig {
     public static final String JOB_NAME = "sampleJob";
     public static final String BEAN_PREFIX = JOB_NAME + "_";
 
@@ -26,7 +25,7 @@ public class SampleJob {
     private final SampleJobParameter sampleJobParameter;
 
     @Bean
-    public Job job() {
+    public Job sampleJob() {
         return new JobBuilder(JOB_NAME, jobRepository)
                 .start(sampleStep())
                 .build();
@@ -42,9 +41,9 @@ public class SampleJob {
     @Bean
     public Tasklet sampleTasklet(){
         return ((contribution, chunkContext) -> {
-            log.info(String.format("baseDt  : %s", sampleJobParameter.getBaseDt()));
-            log.info(String.format("chunkSize  : %s", sampleJobParameter.getChunkSize()));
             log.info(">>>>> This is Step1");
+            log.info(String.format("baseDt : %s", sampleJobParameter.getBaseDt()));
+            log.info(String.format("chunkSize : %s", sampleJobParameter.getChunkSize()));
             return RepeatStatus.FINISHED;
         });
     }
