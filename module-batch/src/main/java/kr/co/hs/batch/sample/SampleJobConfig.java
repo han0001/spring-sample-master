@@ -1,50 +1,30 @@
 package kr.co.hs.batch.sample;
 
+import kr.co.hs.batch.sample.step.SampleStepConfig;
+import kr.co.hs.batch.sample.step.SampleTaskStepConfig;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.batch.core.Job;
-import org.springframework.batch.core.Step;
 import org.springframework.batch.core.job.builder.JobBuilder;
 import org.springframework.batch.core.repository.JobRepository;
-import org.springframework.batch.core.step.builder.StepBuilder;
-import org.springframework.batch.core.step.tasklet.Tasklet;
-import org.springframework.batch.repeat.RepeatStatus;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.transaction.PlatformTransactionManager;
 
 @Slf4j
 @Configuration
 @RequiredArgsConstructor
 public class SampleJobConfig {
     public static final String JOB_NAME = "sampleJob";
-    public static final String BEAN_PREFIX = JOB_NAME + "_";
 
     private final JobRepository jobRepository;
-    private final PlatformTransactionManager transactionManager;
-    private final SampleJobParameter sampleJobParameter;
+    private final SampleTaskStepConfig sampleTaskStepConfig;
+    private final SampleStepConfig sampleStepConfig;
 
     @Bean
-    public Job sampleJob() {
+    public Job sampleJob() throws Exception {
         return new JobBuilder(JOB_NAME, jobRepository)
-                .start(sampleStep())
+                .start(sampleTaskStepConfig.sampleTaskStep())
+                .next(sampleStepConfig.sampleStep())
                 .build();
-    }
-
-    @Bean
-    public Step sampleStep(){
-        return new StepBuilder(BEAN_PREFIX + "sampleStep", jobRepository)
-                .tasklet(sampleTasklet(), transactionManager)
-                .build();
-    }
-
-    @Bean
-    public Tasklet sampleTasklet(){
-        return ((contribution, chunkContext) -> {
-            log.info(">>>>> This is Step1");
-            log.info(String.format("baseDt : %s", sampleJobParameter.getBaseDt()));
-            log.info(String.format("chunkSize : %s", sampleJobParameter.getChunkSize()));
-            return RepeatStatus.FINISHED;
-        });
     }
 }

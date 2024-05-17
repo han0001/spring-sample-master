@@ -2,15 +2,14 @@ package kr.co.hs.domain.sample.entity;
 
 import jakarta.persistence.*;
 import kr.co.hs.domain.constant.legacy.LegacyPayType;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 
 @Getter
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
 @Table(name = "tb_sample")
+@ToString
 public class Sample {
 
     @Id

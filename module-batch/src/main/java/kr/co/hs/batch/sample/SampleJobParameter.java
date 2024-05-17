@@ -8,8 +8,8 @@ import org.springframework.stereotype.Component;
 import java.time.LocalDate;
 
 @Getter
-@JobScope
 @Component
+@JobScope
 public class SampleJobParameter {
 
     private LocalDate baseDt;
