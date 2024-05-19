@@ -45,7 +45,8 @@ public class SampleStepConfig {
         return new BatchServicePagingItemReaderBuilder<SampleRecord>()
                 .name("sampleReader")
                 .batchService(sampleQueryRepository)
-                .methodName("findById")
+                .methodName("findAll")
+                .arguments(20L)
                 .pageSize(10)
                 .build();
     }

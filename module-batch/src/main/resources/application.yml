@@ -4,12 +4,3 @@ spring:
   batch:
     job:
       enabled: true
-#      name: ${job.name:NONE}
-    jdbc:
-      initialize-schema: always
-
-logging:
-  level:
-    org:
-      springframework:
-        jdbc: debug

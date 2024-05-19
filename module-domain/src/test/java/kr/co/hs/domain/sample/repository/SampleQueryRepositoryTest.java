@@ -24,7 +24,7 @@ class SampleQueryRepositoryTest {
     EntityManager em;
 
     @Test
-    public void queryDslTest(){
+    public void 샘플_조회하기(){
         JPAQueryFactory queryFactory = new JPAQueryFactory(em);
         List<SampleRecord> sampleList  = queryFactory
                 .select(Projections.constructor(SampleRecord.class,

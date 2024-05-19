@@ -1,25 +1,23 @@
 package kr.co.hs.batch.sample;
 
+import kr.co.hs.BatchApplication;
 import kr.co.hs.batch.config.BatchTestConfig;
-import kr.co.hs.batch.sample.step.SampleStepConfig;
-import kr.co.hs.batch.sample.step.SampleTaskStepConfig;
 import org.junit.jupiter.api.Test;
-import org.springframework.batch.core.*;
+import org.springframework.batch.core.Job;
+import org.springframework.batch.core.JobExecution;
+import org.springframework.batch.core.JobParameters;
+import org.springframework.batch.core.JobParametersBuilder;
 import org.springframework.batch.test.JobLauncherTestUtils;
 import org.springframework.batch.test.context.SpringBatchTest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
+@SpringBootTest
 @SpringBatchTest
-@SpringBootTest(classes = {
-        BatchTestConfig.class,
-        SampleJobConfig.class,
-        SampleTaskStepConfig.class,
-        SampleStepConfig.class,
-        SampleJobParameter.class})
+@SpringJUnitConfig({BatchApplication.class, BatchTestConfig.class, SampleJobConfig.class})
 class SampleJobConfigTest {
-
 
     @Autowired
     private JobLauncherTestUtils jobLauncherTestUtils;
@@ -35,7 +33,7 @@ class SampleJobConfigTest {
 
         JobParameters jobParameters = new JobParametersBuilder()
                 .addString("baseDt", "2022-01-01")
-                .addString("chunkSize", "579")
+                .addString("chunkSize", "590")
                 .toJobParameters();
 
         JobExecution jobExecution = jobLauncherTestUtils.launchJob(jobParameters);
