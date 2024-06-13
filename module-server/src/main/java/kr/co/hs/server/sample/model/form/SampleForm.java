@@ -3,7 +3,7 @@ package kr.co.hs.server.sample.model.form;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import kr.co.hs.domain.constant.legacy.LegacyPayType;
-import kr.co.hs.domain.sample.entity.Sample;
+import kr.co.hs.domain.modules.sample.domain.model.Sample;
 
 @Schema(name = "샘플 Form")
 public record SampleForm(

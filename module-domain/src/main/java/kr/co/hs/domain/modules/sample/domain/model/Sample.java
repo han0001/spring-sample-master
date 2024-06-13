@@ -1,4 +1,4 @@
-package kr.co.hs.domain.sample.entity;
+package kr.co.hs.domain.modules.sample.domain.model;
 
 import jakarta.persistence.*;
 import kr.co.hs.domain.constant.legacy.LegacyPayType;

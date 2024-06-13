@@ -1,6 +1,5 @@
 package kr.co.hs.batch.sample;
 
-import kr.co.hs.batch.sample.step.SampleStepConfig;
 import kr.co.hs.batch.sample.step.SampleTaskStepConfig;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -18,13 +17,11 @@ public class SampleJobConfig {
 
     private final JobRepository jobRepository;
     private final SampleTaskStepConfig sampleTaskStepConfig;
-    private final SampleStepConfig sampleStepConfig;
 
     @Bean
     public Job sampleJob() throws Exception {
         return new JobBuilder(JOB_NAME, jobRepository)
                 .start(sampleTaskStepConfig.sampleTaskStep())
-                .next(sampleStepConfig.sampleStep())
                 .build();
     }
 }
