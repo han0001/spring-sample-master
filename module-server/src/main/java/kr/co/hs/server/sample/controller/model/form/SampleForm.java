@@ -1,4 +1,4 @@
-package kr.co.hs.server.sample.model.form;
+package kr.co.hs.server.sample.controller.model.form;
 
 
 import io.swagger.v3.oas.annotations.media.Schema;

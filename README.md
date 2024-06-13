@@ -1,15 +1,19 @@
-1. docker mysql 설치
-   1. docker mysql image 설치
+1. Example
+   1. Example memo
    
-      > docker pull mysql:8.0.17
+      > command
 
-   2. docker mysql container 생성 
 
-      (docker-compose.yml, .env 파일 확인)
-      
-      > cd docker
-   
-      > docker-compose up -d  
-    
-2. ㅁㄴㅇ
-  
+
+
+
+
+
+
+
+
+
+
+
+- 스웨거 주소확인
+  - http://localhost:5000/swagger-ui/
