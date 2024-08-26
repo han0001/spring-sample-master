@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+    <!-- active profile -->
+    <springProperty name="profile" source="spring.profiles.active"/>
+
+    <!-- conversion rule -->
+    <conversionRule conversionWord="clr" converterClass="org.springframework.boot.logging.logback.ColorConverter"/>
+    <conversionRule conversionWord="wex" converterClass="org.springframework.boot.logging.logback.WhitespaceThrowableProxyConverter"/>
+
+    <!-- property -->
+    <property name="pattern" value="◇%clr(%5p)[%clr(%d{HH:mm:ss}){faint}][%clr(P:${PID:-}){magenta}][%clr(T:%thread){yellow}][%clr(R:%X{requestId:--}){cyan}] --- %logger{0}[%clr(%method:%line){cyan}]:%m%n%wex"/>
+    <property name="file" value="spring-sample-batch-${profile}"/>
+    <property name="directory" value="spring-sample-batch-${profile}"/>
+
+    <!-- console appender -->
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${pattern}</pattern>
+        </encoder>
+    </appender>
+
+    <!-- file appender -->
+    <appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${directory}/${file}.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${directory}/%d{yyyyMMdd}/${file}_%i.log</fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>10MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+        <encoder>
+            <pattern>${pattern}</pattern>
+        </encoder>
+    </appender>
+
+    <!-- log: high level module -->
+    <springProfile name="high-level-logging">
+        <logger name="root" level="warn"/>
+        <logger name="jdbc" level="off"/>
+        <logger name="jdbc.sqlonly" level="off"/>
+        <logger name="jdbc.sqltiming" level="warn"/>
+        <logger name="jdbc.audit" level="off"/>
+        <logger name="jdbc.resultset" level="off"/>
+        <logger name="jdbc.connection" level="off"/>
+        <logger name="jdbc.resultsettable" level="off"/>
+        <logger name="org.springframework" level="warn"/>
+        <logger name="org.hibernate.SQL" level="warn"/>
+        <logger name="org.hibernate.type" level="off"/>
+        <logger name="com.zaxxer.hikari" level="warn"/>
+    </springProfile>
+
+    <!-- log: low level module -->
+    <springProfile name="low-level-logging">
+        <logger name="root" level="info"/>
+        <logger name="jdbc" level="off"/>
+        <logger name="jdbc.sqlonly" level="off"/>
+        <logger name="jdbc.sqltiming" level="info"/>
+        <logger name="jdbc.audit" level="off"/>
+        <logger name="jdbc.resultset" level="off"/>
+        <logger name="jdbc.connection" level="off"/>
+        <logger name="jdbc.resultsettable" level="info"/>
+        <logger name="org.springframework" level="info"/>
+        <logger name="org.hibernate.SQL" level="info"/>
+        <logger name="org.hibernate.type" level="off"/>
+        <logger name="com.zaxxer.hikari" level="info"/>
+    </springProfile>
+
+    <root>
+        <!-- console logging module -->
+        <springProfile name="console-logging">
+            <appender-ref ref="console"/>
+        </springProfile>
+
+        <!-- file logging module -->
+        <springProfile name="file-logging">
+            <appender-ref ref="file"/>
+        </springProfile>
+    </root>
+</configuration>

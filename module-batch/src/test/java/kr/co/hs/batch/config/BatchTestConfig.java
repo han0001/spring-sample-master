@@ -1,11 +1,12 @@
 package kr.co.hs.batch.config;
 
 
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.boot.test.autoconfigure.jdbc.JdbcTest;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.batch.test.context.SpringBatchTest;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.TestPropertySource;
 
-@Configuration
-@EnableAutoConfiguration
+@SpringBootTest
+@SpringBatchTest
+@TestPropertySource(properties = "spring.batch.job.enabled=false")
 public class BatchTestConfig {
 }

@@ -15,7 +15,6 @@ import java.util.List;
 import static kr.co.hs.domain.sample.entity.QSample.sample;
 
 @Slf4j
-//@SpringBootTest
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 class SampleQueryRepositoryTest {

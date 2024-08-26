@@ -4,6 +4,6 @@ spring:
       on-profile: dev
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url:
+    url: jdbc:mysql://sw-dev-mysql.cfai6mmcgbfw.ap-northeast-2.rds.amazonaws.com:3306/mydb
     username: root
     password: rootrootpw

@@ -1,7 +1,7 @@
 package kr.co.hs.domain.sample.service;
 
 import kr.co.hs.domain.sample.entity.Sample;
-import kr.co.hs.domain.sample.repository.SampleRepository;
+import kr.co.hs.domain.sample.repository.SampleCommandRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -9,10 +9,10 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class SampleDomainService {
 
-    private final SampleRepository sampleRepository;
+    private final SampleCommandRepository sampleCommandRepository;
 
     public void save(Sample sample){
-        sampleRepository.save(sample);
+        sampleCommandRepository.save(sample);
     }
 
 }

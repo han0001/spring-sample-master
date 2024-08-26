@@ -13,22 +13,22 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
-class SampleRepositoryTest {
+class SampleCommandRepositoryTest {
 
     @Autowired
-    SampleRepository sampleRepository;
+    SampleCommandRepository sampleCommandRepository;
 
     @Test
     void 저장테스트(){
         Sample sample = new Sample("홍길동", LegacyPayType.BANK);
-        Sample saveSample = sampleRepository.save(sample);
+        Sample saveSample = sampleCommandRepository.save(sample);
 
         assertThat(saveSample).isSameAs(sample);
     }
 
     @Test
     void 조회테스트(){
-        Optional<Sample> sample = sampleRepository.findById(20L);
+        Optional<Sample> sample = sampleCommandRepository.findById(20L);
         assertThat(sample.isPresent());
     }
 }

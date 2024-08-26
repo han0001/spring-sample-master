@@ -1,5 +1,10 @@
 spring:
   profiles: # profiles 설정
+    group:
+      dev: console-logging, low-level-logging
+      test: console-logging, file-logging, low-level-logging
+      prod1: console-logging, file-logging, low-level-logging
+      prod2: console-logging, file-logging, low-level-logging
     active: dev # 다른 설정이 없을 때 default 환경 값
   batch:
     job:

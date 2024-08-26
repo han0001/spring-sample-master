@@ -12,8 +12,6 @@ public class SampleService {
 
     private final SampleDomainService sampleDomainService;
 
-
-
     public void saveSample(SampleForm sampleForm){
         sampleDomainService.save(sampleForm.toEntityForInsert());
     }
