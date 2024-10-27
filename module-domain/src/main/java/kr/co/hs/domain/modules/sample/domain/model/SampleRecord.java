@@ -1,4 +1,4 @@
-package kr.co.hs.domain.sample.record;
+package kr.co.hs.domain.modules.sample.domain.model;
 
 import kr.co.hs.domain.constant.legacy.LegacyPayType;
 

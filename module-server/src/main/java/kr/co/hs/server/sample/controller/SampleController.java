@@ -1,6 +1,6 @@
 package kr.co.hs.server.sample.controller;
 
-import kr.co.hs.server.sample.model.form.SampleForm;
+import kr.co.hs.server.sample.controller.model.form.SampleForm;
 import kr.co.hs.server.sample.service.SampleService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,7 +16,7 @@ public class SampleController {
     private final SampleService sampleService;
 
     @PostMapping("/one")
-    public String getSampleOne(@RequestBody SampleForm sampleForm){
+    public String saveSampleOne(@RequestBody SampleForm sampleForm){
         sampleService.saveSample(sampleForm);
         return "ok";
     }

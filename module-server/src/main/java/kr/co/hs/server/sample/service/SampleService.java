@@ -1,7 +1,7 @@
 package kr.co.hs.server.sample.service;
 
-import kr.co.hs.domain.sample.service.SampleDomainService;
-import kr.co.hs.server.sample.model.form.SampleForm;
+import kr.co.hs.domain.modules.sample.service.SampleDomainService;
+import kr.co.hs.server.sample.controller.model.form.SampleForm;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

@@ -1,7 +1,7 @@
-package kr.co.hs.domain.sample.service;
+package kr.co.hs.domain.modules.sample.service;
 
-import kr.co.hs.domain.sample.entity.Sample;
-import kr.co.hs.domain.sample.repository.SampleCommandRepository;
+import kr.co.hs.domain.modules.sample.domain.model.Sample;
+import kr.co.hs.domain.modules.sample.infrastructure.SampleCommandRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
